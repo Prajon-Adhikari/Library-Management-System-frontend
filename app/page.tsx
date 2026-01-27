@@ -1,6 +1,7 @@
 // app/page.tsx
 
 import Image from "next/image";
+import LibraryBanner from "@/Components/LibraryBanner";
 
 const shelves = [
   {
@@ -23,20 +24,21 @@ const shelves = [
     books: [
       { id: 7, title: "Steve Jobs", cover: "/books/book7.jpg" },
       { id: 8, title: "Clean Code", cover: "/books/book8.jpg" },
-      { id: 9, title: "One Thing", cover: "/books/book1.jpg" },
+      { id: 9, title: "Lord of the Rings", cover: "/books/book3.jpg" },
+      { id: 10, title: "1984", cover: "/books/book5.jpg" },
+      { id: 11, title: "Design of Everyday Things", cover: "/books/book6.jpg" },
+      { id: 12, title: "Lord of the Rings", cover: "/books/book3.jpg" },
+      { id: 13, title: "1984", cover: "/books/book5.jpg" },
+      { id: 14, title: "Design of Everyday Things", cover: "/books/book6.jpg" },
     ],
   },
 ];
 
 export default function LibraryDashboard() {
   return (
-    <div className="min-h-screen p-8 ">
+    <div className="min-h-screen">
       <header className="flex items-center justify-between mb-10">
-        <h1 className="text-2xl font-semibold">My Library</h1>
-        <input
-          placeholder="Search in my library"
-          className="w-72 px-4 py-2 rounded-full border focus:outline-none"
-        />
+        <LibraryBanner />
       </header>
 
       <div className="space-y-12">
@@ -50,10 +52,10 @@ export default function LibraryDashboard() {
             </div>
 
             <div className=" rounded-xl p-6">
-              <div className="flex gap-20">
+              <div className="flex gap-18 h-50 w-[76vw] overflow-y-scroll scroll-smooth hide-scrollbar">
                 {shelf.books.map((book) => (
                   <div key={book.id}>
-                    <div className="cursor-pointer relative z-10 h-48 w-36 overflow-hidden shadow-[-3px_-3px_10px_gray]  hover:scale-105 transition">
+                    <div className="cursor-pointer relative z-10 h-50 w-36 overflow-hidden shadow-[-3px_-3px_10px_gray] ">
                       <Image
                         src={book.cover}
                         alt={book.title}

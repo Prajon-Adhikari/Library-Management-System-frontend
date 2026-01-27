@@ -9,13 +9,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#faf6f2]">
+      <body className="">
         <div className="flex h-screen">
           {/* Sidebar */}
           <Sidebar />
 
           {/* Main content */}
-          <div className="flex-1 flex flex-col bg-[#faf6f2]">
+          <div className="flex-1 flex flex-col ">
             <Topbar />
             <main className="flex-1 overflow-y-auto p-8">{children}</main>
           </div>
