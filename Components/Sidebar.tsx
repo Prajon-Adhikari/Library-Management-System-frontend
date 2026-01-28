@@ -30,7 +30,7 @@ export default function Sidebar() {
         <nav className="px-3">
           <Section title="ACTIVITY">
             <Item icon={<Home size={18} />} label="Home" />
-            <Item icon={<BookA size={18} />} label="My Books" />
+            <Item icon={<BookA size={18} />} label=" Books" />
             <Item icon={<Download size={18} />} label="Downloads" badge={5} />
             <Item icon={<Bookmark size={18} />} label="Saved Books" />
           </Section>
