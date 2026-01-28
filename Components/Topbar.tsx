@@ -7,6 +7,8 @@ export default function Topbar() {
 
   if (pathname.startsWith("/books/")) return null;
 
+  if (["/login", "/signup"].includes(pathname)) return null;
+
   return (
     <header className="h-16 bg-white  border-b border-[#e2d8cc] flex items-center justify-between px-8">
       {/* Search */}

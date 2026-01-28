@@ -17,6 +17,8 @@ export default function Sidebar() {
 
   if (pathname.startsWith("/books/")) return null;
 
+  if (["/login", "/signup"].includes(pathname)) return null;
+
   return (
     <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between">
       {/* Top */}
