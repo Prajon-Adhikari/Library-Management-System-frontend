@@ -1,6 +1,12 @@
-import { Bell, MoonIcon } from "lucide-react";
+"use client";
 
+import { Bell, MoonIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
 export default function Topbar() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/books/")) return null;
+
   return (
     <header className="h-16 bg-white  border-b border-[#e2d8cc] flex items-center justify-between px-8">
       {/* Search */}

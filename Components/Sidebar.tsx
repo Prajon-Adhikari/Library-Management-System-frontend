@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Download,
   FileText,
@@ -8,8 +10,13 @@ import {
   Bookmark,
   BookA,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/books/")) return null;
+
   return (
     <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between">
       {/* Top */}

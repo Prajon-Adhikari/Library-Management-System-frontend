@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import LibraryBanner from "@/Components/LibraryBanner";
+import Link from "next/link";
 
 const shelves = [
   {
@@ -55,14 +56,16 @@ export default function LibraryDashboard() {
               <div className="flex gap-18 h-50 w-[76vw] overflow-y-scroll scroll-smooth hide-scrollbar">
                 {shelf.books.map((book) => (
                   <div key={book.id}>
-                    <div className="cursor-pointer relative z-10 h-50 w-36 overflow-hidden shadow-[-3px_-3px_10px_gray] ">
-                      <Image
-                        src={book.cover}
-                        alt={book.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                    <Link href={`/books/${book.id}`}>
+                      <div className="cursor-pointer relative z-10 h-50 w-36 overflow-hidden shadow-[-3px_-3px_10px_gray] ">
+                        <Image
+                          src={book.cover}
+                          alt={book.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
