@@ -3,10 +3,13 @@
 import axios from "axios";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUser } = useAuth();
 
   const router = useRouter();
 
@@ -20,6 +23,7 @@ export default function LoginPage() {
           password,
         },
       );
+      setUser(response.data.user);
       localStorage.setItem("token", response.data.token);
       router.push("/");
       console.log(response);

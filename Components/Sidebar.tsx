@@ -11,6 +11,7 @@ import {
   BookA,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -18,6 +19,8 @@ export default function Sidebar() {
   if (pathname.startsWith("/books/")) return null;
 
   if (["/login", "/signup"].includes(pathname)) return null;
+
+  const { user } = useAuth();
 
   return (
     <aside className="w-64 h-screen bg-white border-r flex flex-col justify-between">
@@ -63,7 +66,7 @@ export default function Sidebar() {
           className="w-10 h-10 rounded-full"
         />
         <div>
-          <p className="text-sm font-medium">User name</p>
+          <p className="text-sm font-medium">{user?.fullName}</p>
           <p className="text-xs text-gray-400">user.name@email.com</p>
         </div>
       </div>
